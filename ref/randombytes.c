@@ -38,7 +38,7 @@ void randombytes(unsigned char *x, unsigned long xlen)
             continue;
         }
 
-        x += r;
-        xlen -= r;
+        x += (unsigned long)r;
+        xlen -= (unsigned long)r;
     }
 }

@@ -549,7 +549,7 @@ void shake256_inc_squeeze(uint8_t *output, size_t outlen, uint64_t *s_inc) {
  *                                            into s
  *              - size_t inlen: length of input in bytes
  **************************************************/
-void shake256_absorb(uint64_t *s, const uint8_t *input, size_t inlen) {
+static void shake256_absorb(uint64_t *s, const uint8_t *input, size_t inlen) {
     keccak_absorb(s, SHAKE256_RATE, input, inlen, 0x1F);
 }
 
@@ -565,7 +565,7 @@ void shake256_absorb(uint64_t *s, const uint8_t *input, size_t inlen) {
  *                                (written to output)
  *              - uint64_t *s: pointer to input/output Keccak state
  **************************************************/
-void shake256_squeezeblocks(uint8_t *output, size_t nblocks, uint64_t *s) {
+static void shake256_squeezeblocks(uint8_t *output, size_t nblocks, uint64_t *s) {
     keccak_squeezeblocks(output, nblocks, s, SHAKE256_RATE);
 }
 
